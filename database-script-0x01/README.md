@@ -1,4 +1,4 @@
-# Airbnb Database Schemamysql
+# Airbnb Database Schema
 
 This repository contains a SQL script to create a basic Airbnb-style relational database schema using MySQL. It includes user accounts, properties, bookings, payments, reviews, and messaging between users.
 
