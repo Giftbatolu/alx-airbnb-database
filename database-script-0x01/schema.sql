@@ -14,7 +14,7 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 INDEX idx_email (email)
 );
 
-CREATE TABLE properties (
+CREATE TABLE IF NOT EXISTS properties (
 property_id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
 host_id CHAR(36) NOT NULL,
 name VARCHAR(255) NOT NULL,
@@ -28,7 +28,7 @@ INDEX idx_host_id (host_id),
 FOREIGN KEY(host_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE booking (
+CREATE TABLE IF NOT EXISTS booking (
 booking_id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
 property_id CHAR(36) NOT NULL,
 user_id CHAR(36) NOT NULL,
@@ -44,7 +44,7 @@ FOREIGN KEY(property_id) REFERENCES properties(property_id) ON DELETE CASCADE,
 FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE payments (
+CREATE TABLE IF NOT EXISTS payments (
 payment_id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
 booking_id CHAR(36) NOT NULL,
 amount DECIMAL(10, 2) NOT NULL,
@@ -55,7 +55,7 @@ INDEX idx_booking_id (booking_id),
 FOREIGN KEY(booking_id) REFERENCES booking(booking_id) ON DELETE CASCADE
 );
 
-CREATE TABLE reviews (
+CREATE TABLE IF NOT EXISTS reviews (
 review_id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
 property_id CHAR(36) NOT NULL,
 user_id CHAR(36) NOT NULL,
@@ -70,7 +70,7 @@ FOREIGN KEY(property_id) REFERENCES properties(property_id) ON DELETE CASCADE,
 FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE messages (
+CREATE TABLE IF NOT EXISTS messages (
 message_id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
 sender_id CHAR(36) NOT NULL,
 recipient_id CHAR(36) NOT NULL,

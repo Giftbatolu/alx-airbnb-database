@@ -26,7 +26,7 @@ This script:
 ## Usage
 **To run the schema.sql script**
 ```bash
-sudo mysql -u root -p database-script-0x01/schema.sql
+sudo mysql -u root -p < database-script-0x01/schema.sql
 
 OR
 sudo mysql -u root -p (TO login)
