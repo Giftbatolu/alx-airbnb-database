@@ -28,7 +28,7 @@ INDEX idx_host_id (host_id),
 FOREIGN KEY(host_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS booking (
+CREATE TABLE IF NOT EXISTS bookings (
 booking_id CHAR(36) PRIMARY KEY DEFAULT (UUID()),
 property_id CHAR(36) NOT NULL,
 user_id CHAR(36) NOT NULL,
@@ -52,7 +52,7 @@ payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 payment_method ENUM('credit_card', 'paypal', 'stripe') NOT NULL,
 
 INDEX idx_booking_id (booking_id),
-FOREIGN KEY(booking_id) REFERENCES booking(booking_id) ON DELETE CASCADE
+FOREIGN KEY(booking_id) REFERENCES bookings(booking_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS reviews (
