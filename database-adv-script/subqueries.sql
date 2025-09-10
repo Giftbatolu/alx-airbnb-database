@@ -1,7 +1,8 @@
 USE airbnb_database; -- To select the intended database
 
 -- Write a query to find all properties where the average rating is greater than 4.0 using a subquery.
-SELECT properties.property_id, properties.host_id, properties.name, properties.description, properties.location, properties.pricepernight
+-- SELECT properties.property_id, properties.host_id, properties.name, properties.description, properties.location, properties.pricepernight - to select specific columns
+SELECT *
 FROM properties
 WHERE property_id IN (
     SELECT reviews.property_id
